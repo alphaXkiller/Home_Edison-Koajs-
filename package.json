@@ -1,0 +1,22 @@
+{
+  "name": "home_edison_koajs",
+  "version": "0.0.1",
+  "description": "Home automation first attempt",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphaXkiller/Home_Edison_Koajs.git"
+  },
+  "author": "Franklin Huang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alphaXkiller/Home_Edison_Koajs/issues"
+  },
+  "homepage": "https://github.com/alphaXkiller/Home_Edison_Koajs#readme",
+  "dependencies": {
+    "koa": "^0.21.0"
+  }
+}
