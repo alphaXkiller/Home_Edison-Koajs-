@@ -1,19 +1,30 @@
 var koa = require('koa');
 var app = koa();
+var router = require('koa-router')();
 
-app.use(function *(){
-	console.log(this.request);
-	var url = this.request.url;
-	if(url === '/'){
-		this.body = 'Hello from koajs';
+
+var requestTime = function(headerName){
+	return function *(next){
+		var start = new Date();
+		yield next;
+		var end = new Date();
+		var ms = end - start;
+		this.set(headerName, ms + 'ms');
 	}
-	else if(url === '/date'){
-		this.body = new Date();
-	}
-	else{
-		this.status = 404;
-		this.body = 'Ooops! Page not found';
-	}
+}
+
+app.use(requestTime('Response-time'));
+
+router.get('/', function	*(){
+	this.body = "Hello from koajs, guys";
 });
 
+router.get('/date', function *(){
+	this.body = new Date();
+})
+
+app
+	.use(router.routes())
+	.use(router.allowedMethods());
+	
 app.listen(3000);
