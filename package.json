@@ -18,6 +18,7 @@
   "homepage": "https://github.com/alphaXkiller/Home_Edison_Koajs#readme",
   "dependencies": {
     "koa": "^0.21.0",
+    "koa-bodyparser": "^2.0.0",
     "koa-router": "^5.1.2"
   }
 }

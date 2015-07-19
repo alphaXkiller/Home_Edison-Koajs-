@@ -2,7 +2,6 @@ var koa = require('koa');
 var app = koa();
 var router = require('koa-router')();
 
-
 var requestTime = function(headerName){
 	return function *(next){
 		var start = new Date();
@@ -15,9 +14,6 @@ var requestTime = function(headerName){
 
 app.use(requestTime('Response-time'));
 
-router.get('/', function	*(){
-	this.body = "Hello from koajs, guys";
-});
 
 router.get('/date', function *(){
 	this.body = new Date();
